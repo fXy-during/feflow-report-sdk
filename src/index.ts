@@ -1,5 +1,6 @@
 import path from "path";
-
+import Api from "./api";
+import { getRTX } from "./common/utils";
 
 interface ReportContext {
     base: String// pathFn.join(osenv.home(), './.feflow');
@@ -22,7 +23,7 @@ class Report {
 
     constructor(feflowContext: any) {
         this.ctx = feflowContext;
-        this.ctx.pkgConfig = require(path.resolve(__dirname, "./package.json"));
+        // this.ctx.pkgConfig = require(path.resolve(__dirname, "./package.json"));
     }
     get timestamp() {
         return Date.now();
@@ -32,11 +33,18 @@ class Report {
         const { name } = pkgConfig
         return name
     }
-    report({ cmd, args }) {
+    get rtx() {
+        return getRTX();
+    }
+    report(cmd, args?) {
+        console.log("rtx", this.rtx)
+        // Api.report({
 
+        // })
     }
 
 }
+
 
 
 export default Report

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "npm run build && node ./lib/dev.js"
   },
   "author": "bethonxyfu <bethonxyfu@tencent.com>",
   "license": "ISC",
@@ -17,5 +18,8 @@
   },
   "files": [
     "lib"
-  ]
+  ],
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  }
 }
