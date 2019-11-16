@@ -1,14 +1,14 @@
 {
   "name": "feflow-report-sdk",
   "version": "1.0.0",
-  "description": "feflow上报sdk",
-  "main": "index.js",
+  "description": "feflow report sdk",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "dev": "npm run build && node ./lib/dev.js"
   },
-  "author": "bethonxyfu <bethonxyfu@tencent.com>",
+  "author": "fXy-during <fxy1044667399@163.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -20,6 +20,8 @@
     "lib"
   ],
   "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
     "shelljs": "^0.8.3"
   }
 }
