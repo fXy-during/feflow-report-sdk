@@ -97,7 +97,6 @@ class Report {
     return true;
   }
 
-  //
   report(cmd, args?) {
     // 命令校验
     if (!this.checkBeforeReport(cmd, args)) return;
@@ -108,4 +107,4 @@ class Report {
   }
 }
 
-export default Report;
+module.exports = Report;
