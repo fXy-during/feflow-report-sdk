@@ -1,10 +1,10 @@
-import Api from "./api";
+import Api from './api';
 import {
   getUserNameFromGit,
   getSystemInfoByOS,
   getProjectByPackage
-} from "./common/utils";
-import Hanzo from "./common/hanzo";
+} from './common/utils';
+import Hanzo from './common/hanzo';
 
 interface ReportContext {
   base: String; // pathFn.join(osenv.home(), './.feflow');
@@ -46,7 +46,7 @@ class Report {
   }
   getProject() {
     const { pkgConfig } = this.ctx;
-    let project = "";
+    let project = '';
 
     if (pkgConfig) {
       // feflow context
@@ -78,11 +78,11 @@ class Report {
 
   getReportBody(cmd, args): ReportBody {
     const reportBody: ReportBody = Hanzo.create()
-      .load("command", cmd)
-      .load("user_name", this.userName)
-      .load("params", args)
-      .load("system_info", this.systemInfo)
-      .load("project", this.project)
+      .load('command', cmd)
+      .load('user_name', this.userName)
+      .load('params', args)
+      .load('system_info', this.systemInfo)
+      .load('project', this.project)
       // .load("spent_time", this.systemInfo)
       // .load("is_fail", this.systemInfo)
       .done();

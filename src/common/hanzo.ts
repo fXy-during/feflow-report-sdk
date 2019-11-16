@@ -1,7 +1,7 @@
 interface Hanzo {
   obj: object;
   create: () => Hanzo;
-  load: (key: string, value: string | Function) => Hanzo;
+  load: (key: string, value: any) => Hanzo;
   done: () => object;
 }
 
@@ -12,10 +12,10 @@ const hanzo: Hanzo = {
     return this;
   },
   load(key, value): Hanzo {
-    if (typeof value == "string") {
-      this.obj[key] = value;
-    } else if (typeof value == "function") {
+    if (typeof value == 'function') {
       this.obj[key] = value();
+    } else {
+      this.obj[key] = value;
     }
     return this;
   },

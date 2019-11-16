@@ -1,20 +1,20 @@
-import rp from "request-promise";
-import URI from "./config";
+import rp from 'request-promise';
+import URI from './config';
 
 export default {
   report(param) {
-    console.log("param", param);
+    console.log('param', param);
     rp({
-      method: "POST",
+      method: 'POST',
       uri: URI.REPORT_URL,
       body: param,
       json: true
     })
       .then(res => {
-        console.log("got report response", res);
+        console.log('got report response', res);
       })
       .catch(e => {
-        console.log("rp report fail", e);
+        console.log('rp report fail', e);
       });
   }
 };
