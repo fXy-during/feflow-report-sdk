@@ -20,6 +20,7 @@ interface ReportContext {
   pkgConfig: {
     name: string;
   };
+  log: any;
 }
 
 interface ReportBody {
@@ -36,6 +37,10 @@ class Report {
 
   constructor(feflowContext: any) {
     this.ctx = feflowContext;
+
+    this.ctx.log = this.ctx.log
+      ? this.ctx.log
+      : { info: console.log, debug: console.log };
 
     this.userName = this.getUserName();
     this.systemInfo = this.getSystemInfo();
@@ -102,7 +107,8 @@ class Report {
     if (!this.checkBeforeReport(cmd, args)) return;
     try {
       const reportBody: ReportBody = this.getReportBody(cmd, args);
-      Api.report(reportBody);
+      this.ctx.log.debug('reportBody', reportBody);
+      Api.report(reportBody, this.ctx.log);
     } catch (error) {
       console.log('feflow 上报报错，请联系相关负责人排查 ', error);
     }
