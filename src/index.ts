@@ -100,10 +100,12 @@ class Report {
   report(cmd, args?) {
     // 命令校验
     if (!this.checkBeforeReport(cmd, args)) return;
-
-    const reportBody: ReportBody = this.getReportBody(cmd, args);
-
-    Api.report(reportBody);
+    try {
+      const reportBody: ReportBody = this.getReportBody(cmd, args);
+      Api.report(reportBody);
+    } catch (error) {
+      console.log('feflow 上报报错，请联系相关负责人排查 ', error);
+    }
   }
 }
 
