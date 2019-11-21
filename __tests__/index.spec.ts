@@ -1,10 +1,9 @@
 import chai from 'chai';
 const Report = require('../src/index');
 
-const should = chai.should();
 const expect = chai.expect;
 
-describe('@feflow/report - ', () => {
+describe('@feflow/report - report', () => {
   let report;
 
   before(() => {

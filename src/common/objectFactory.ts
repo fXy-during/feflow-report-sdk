@@ -1,18 +1,18 @@
-interface Hanzo {
+interface ObjectFactory {
   obj: object;
-  create: () => Hanzo;
-  load: (key: string, value: any) => Hanzo;
+  create: () => ObjectFactory;
+  load: (key: string, value: any) => ObjectFactory;
   done: () => object;
 }
 
-const hanzo: Hanzo = {
+const objectFactory: ObjectFactory = {
   obj: null,
-  create(): Hanzo {
+  create(): ObjectFactory {
     this.obj = Object.create(null);
     return this;
   },
-  load(key, value): Hanzo {
-    if (typeof value == 'function') {
+  load(key, value): ObjectFactory {
+    if (typeof value == "function") {
       this.obj[key] = value();
     } else {
       this.obj[key] = value;
@@ -26,4 +26,4 @@ const hanzo: Hanzo = {
   }
 };
 
-export default hanzo;
+export default objectFactory;
