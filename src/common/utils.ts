@@ -30,6 +30,7 @@ export const getSystemInfoByOS = () => {
 
 export const getProjectByPackage = () => {
   let project = '';
+  // pwd
   const pkgPath = path.resolve(process.cwd(), './package.json');
   if (fs.existsSync(pkgPath)) {
     project = require(pkgPath).name;
